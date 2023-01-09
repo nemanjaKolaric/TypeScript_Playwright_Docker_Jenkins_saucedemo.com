@@ -5,6 +5,7 @@ const firstNameInput = '#first-name'
 const lastNameInput = '#last-name'
 const postalCodeInput = '#postal-code'
 const continueButton = '#continue'
+const removeBackPackItemButton = '#remove-sauce-labs-backpack'
 
 export default class CheckoutPage {
 
@@ -33,6 +34,10 @@ export default class CheckoutPage {
 
     async continueButtonClick() {
         await this.page.locator(continueButton).click()
+    }
+
+    async removeItemBackPackButtonClick() {
+        await this.page.locator(removeBackPackItemButton).click()
     }
 
     async shoppingForm(firstName, lastName, postalCode) {

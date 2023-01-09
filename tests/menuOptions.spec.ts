@@ -6,6 +6,7 @@ test.describe('Menu options suite', async () => {
 
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page)
+
         await loginPage.baseURL()
         await loginPage.logInForm(`${process.env.STANDARD_USER}`, `${process.env.PASSWORD}`)
     })
@@ -39,9 +40,9 @@ test.describe('Menu options suite', async () => {
     test('RESET APP STATE Link', async ({ page }) => {
         const homePage = new HomePage(page)
 
-        await homePage.addBackPackItem()
+        await homePage.addBackPackItemClick()
         await homePage.menuButtonClick()
-        await homePage.resetAppLink()
+        await homePage.resetAppLinkClick()
         await expect(homePage.shoppingCartBadge).not.toBeVisible()
     })
 

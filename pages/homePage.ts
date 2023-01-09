@@ -6,6 +6,8 @@ const aboutLink = '#about_sidebar_link'
 const logOutLink = '#logout_sidebar_link'
 const resetAppStateLink = '#reset_sidebar_link'
 const addBackPack = '#add-to-cart-sauce-labs-backpack'
+const removeBackPack = '#remove-sauce-labs-backpack'
+const linkItemBackPack = '.inventory_item:nth-child(1) .inventory_item_name'
 
 export default class HomePage {
 
@@ -36,12 +38,19 @@ export default class HomePage {
         await this.page.locator(logOutLink).click()
     }
 
-    async resetAppLink() {
+    async resetAppLinkClick() {
         await this.page.locator(resetAppStateLink).click()
     }
 
-    async  addBackPackItem() {
+    async addBackPackItemClick() {
         await this.page.locator(addBackPack).click()
     }
 
+    async removeBackPackItemClick() {
+        await this.page.locator(removeBackPack).click()
+    }
+
+    async linkBackPackItemClick() {
+        await this.page.locator(linkItemBackPack).click()
+    }
 }
