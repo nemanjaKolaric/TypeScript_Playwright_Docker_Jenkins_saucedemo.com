@@ -18,7 +18,7 @@ test.describe("Test suite - 'CHECKOUT: YOUR INFORMATION' page", async () => {
     })
 
     customer.forEach((data) => {
-       
+
         test(`Filling customer informations ${data.info}`, async ({ page }) => {
             const checkoutPage = new CheckoutPage(page)
 
@@ -29,4 +29,5 @@ test.describe("Test suite - 'CHECKOUT: YOUR INFORMATION' page", async () => {
             }
         })
     })
+
 })
