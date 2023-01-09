@@ -6,6 +6,7 @@ const aboutLink = '#about_sidebar_link'
 const logOutLink = '#logout_sidebar_link'
 const resetAppStateLink = '#reset_sidebar_link'
 const addBackPack = '#add-to-cart-sauce-labs-backpack'
+
 export default class HomePage {
 
     constructor(public page: Page) {
