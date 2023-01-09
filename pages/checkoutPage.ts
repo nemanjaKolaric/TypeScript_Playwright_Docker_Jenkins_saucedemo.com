@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test"
+import { Page } from "@playwright/test"  
 const checkoutButton = '#checkout'
 const firstNameInput = '#first-name'
 const lastNameInput = '#last-name'
