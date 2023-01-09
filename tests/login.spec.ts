@@ -11,7 +11,7 @@ test.describe('Login test suite', async () => {
     })
 
     user.forEach((data) => {
-        
+
         test(`Login with ${data.credential}: ${data.username}`, async ({ page }) => {
             const loginPage = new LoginPage(page)
 
@@ -22,4 +22,5 @@ test.describe('Login test suite', async () => {
             }
         })
     })
+
 })

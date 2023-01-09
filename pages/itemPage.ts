@@ -1,11 +1,10 @@
 import { Page } from "@playwright/test"
-
 const addBackPack = '#add-to-cart-sauce-labs-backpack'
 const removeBackPack = '#remove-sauce-labs-backpack'
 
-export default class ItemPage{
+export default class ItemPage {
 
-    constructor(public page: Page){ 
+    constructor(public page: Page) {
     }
 
     async addBackPackItemClick() {
@@ -15,5 +14,5 @@ export default class ItemPage{
     async removeBackPackItemClick() {
         await this.page.locator(removeBackPack).click()
     }
-    
+
 }

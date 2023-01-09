@@ -1,11 +1,11 @@
-import { Page } from "@playwright/test"
-
+import { Page } from "@playwright/test"  
 const checkoutButton = '#checkout'
 const firstNameInput = '#first-name'
 const lastNameInput = '#last-name'
 const postalCodeInput = '#postal-code'
 const continueButton = '#continue'
 const removeBackPackItemButton = '#remove-sauce-labs-backpack'
+const finishButton = '#finish'
 
 export default class CheckoutPage {
 
@@ -14,6 +14,22 @@ export default class CheckoutPage {
 
     get errorMessage() {
         return this.page.locator('[data-test="error"]');
+    }
+
+    get itemTotal() {
+        return this.page.locator('.summary_subtotal_label');
+    }
+
+    get tax() {
+        return this.page.locator('.summary_tax_label');
+    }
+
+    get total() {
+        return this.page.locator('.summary_total_label');
+    }
+
+    get title() {
+        return this.page.locator('.title');
     }
 
     async checkoutButtonClick() {
@@ -34,6 +50,10 @@ export default class CheckoutPage {
 
     async continueButtonClick() {
         await this.page.locator(continueButton).click()
+    }
+
+    async finishButtonClick() {
+        await this.page.locator(finishButton).click()
     }
 
     async removeItemBackPackButtonClick() {

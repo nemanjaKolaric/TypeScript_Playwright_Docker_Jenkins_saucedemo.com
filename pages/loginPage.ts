@@ -1,5 +1,4 @@
 import { Page } from '@playwright/test';
-
 const userNameField = '#user-name'
 const passwordField = '#password'
 const loginButton = '#login-button'
