@@ -1,12 +1,16 @@
-import { expect, Page } from '@playwright/test';
-const userNameField = '[id="user-name"]'
-const passwordField = '[id="password"]'
-const loginButton = '[id="login-button"]'
-const errorMessage = '[data-test="error"]'
+import { Page } from '@playwright/test';
+
+const userNameField = '#user-name'
+const passwordField = '#password'
+const loginButton = '#login-button'
 
 export default class LoginPage {
 
     constructor(public page: Page) {
+    }
+
+    get errorMessage() {
+        return this.page.locator('[data-test="error"]');
     }
 
     async baseURL() {
@@ -25,11 +29,7 @@ export default class LoginPage {
         await this.page.locator(loginButton).click();
     }
 
-    get errorMessage() {
-        return (this.page.locator(errorMessage));
-    }
-
-    async logIn(username, password) {
+    async logInForm(username, password) {
         if (username === "" && password === "") {
             await this.loginButtonClick()
         } else if (username === "") {
