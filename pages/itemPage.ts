@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test"
-const addBackPack = '#add-to-cart-sauce-labs-backpack'
-const removeBackPack = '#remove-sauce-labs-backpack'
+const addBackPack = 'add-to-cart-sauce-labs-backpack'
+const removeBackPack = 'remove-sauce-labs-backpack'
 
 export default class ItemPage {
 
@@ -8,11 +8,11 @@ export default class ItemPage {
     }
 
     async addBackPackItemClick() {
-        await this.page.locator(addBackPack).click()
+        await this.page.getByTestId(addBackPack).click()
     }
 
     async removeBackPackItemClick() {
-        await this.page.locator(removeBackPack).click()
+        await this.page.getByTestId(removeBackPack).click()
     }
 
 }

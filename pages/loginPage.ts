@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
-const userNameField = '#user-name'
-const passwordField = '#password'
+const userNameField = 'username'
+const passwordField = 'password'
 const loginButton = '#login-button'
 
 export default class LoginPage {
@@ -8,20 +8,20 @@ export default class LoginPage {
     constructor(public page: Page) {
     }
 
-    get errorMessage() {
-        return this.page.locator('[data-test="error"]');
-    }
-
     async baseURL() {
         await this.page.goto(`${process.env.BASE_URL}`)
     }
 
+    get errorMessage() {
+        return this.page.locator('[data-test="error"]');
+    }
+
     async userNameFill(value: string) {
-        await this.page.locator(userNameField).fill(value);
+        await this.page.getByTestId(userNameField).fill(value);
     }
 
     async userPasswordFill(value: string) {
-        await this.page.locator(passwordField).fill(value);
+        await this.page.getByTestId(passwordField).fill(value);
     }
 
     async loginButtonClick() {
