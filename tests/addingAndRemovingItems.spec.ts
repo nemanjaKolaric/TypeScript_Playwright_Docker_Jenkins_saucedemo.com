@@ -16,15 +16,15 @@ test.describe('Adding and removing items', async () => {
     test('user add item from home page', async ({ page }) => {
         const homePage = new HomePage(page)
 
-        await homePage.addBackPackItemClick()
+        await homePage.addBackPackItem.click()
         await expect(homePage.shoppingCartBadge).toBeVisible()
     })
 
     test('user remove item from home page', async ({ page }) => {
         const homePage = new HomePage(page)
 
-        await homePage.addBackPackItemClick()
-        await homePage.removeBackPackItemClick()
+        await homePage.addBackPackItem.click()
+        await homePage.removeBackPackItem.click()
         await expect(homePage.shoppingCartBadge).not.toBeVisible()
     })
 
@@ -32,8 +32,8 @@ test.describe('Adding and removing items', async () => {
         const homePage = new HomePage(page)
         const itemPage = new ItemPage(page)
 
-        await homePage.linkBackPackItemClick()
-        await itemPage.addBackPackItemClick()
+        await homePage.backPackItemPage.click()
+        await itemPage.addBackPackItem.click()
         await expect(homePage.shoppingCartBadge).toBeVisible()
     })
 
@@ -41,9 +41,9 @@ test.describe('Adding and removing items', async () => {
         const homePage = new HomePage(page)
         const itemPage = new ItemPage(page)
 
-        await homePage.linkBackPackItemClick()
-        await itemPage.addBackPackItemClick()
-        await itemPage.removeBackPackItemClick()
+        await homePage.backPackItemPage.click()
+        await itemPage.addBackPackItem.click()
+        await itemPage.removeBackPackItem.click()
         await expect(homePage.shoppingCartBadge).not.toBeVisible()
     })
 
@@ -51,9 +51,9 @@ test.describe('Adding and removing items', async () => {
         const homePage = new HomePage(page)
         const checkoutPage = new CheckoutPage(page)
 
-        await homePage.addBackPackItemClick()
+        await homePage.addBackPackItem.click()
         await homePage.shoppingCartLink.click()
-        await checkoutPage.removeItemBackPackButtonClick()
+        await checkoutPage.removeItemBackPackButton.click()
         await expect(homePage.shoppingCartBadge).not.toBeVisible()
     })
 

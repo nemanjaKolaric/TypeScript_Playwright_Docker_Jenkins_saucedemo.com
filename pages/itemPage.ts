@@ -1,18 +1,16 @@
 import { Page } from "@playwright/test"
-const addBackPack = 'add-to-cart-sauce-labs-backpack'
-const removeBackPack = 'remove-sauce-labs-backpack'
 
 export default class ItemPage {
 
     constructor(public page: Page) {
     }
 
-    async addBackPackItemClick() {
-        await this.page.getByTestId(addBackPack).click()
+    get addBackPackItem() {
+        return this.page.getByTestId('add-to-cart-sauce-labs-backpack')
     }
 
-    async removeBackPackItemClick() {
-        await this.page.getByTestId(removeBackPack).click()
+    get removeBackPackItem() {
+        return this.page.getByTestId('remove-sauce-labs-backpack')
     }
 
 }

@@ -15,16 +15,16 @@ test.describe('Menu options suite', async () => {
         const homePage = new HomePage(page)
 
         await homePage.shoppingCartLink.click()
-        await homePage.menuButtonClick()
-        await homePage.allItemsClick()
+        await homePage.menuButton.click()
+        await homePage.allItemsLink.click()
         await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
     })
 
     test('ABOUT Link', async ({ page }) => {
         const homePage = new HomePage(page)
 
-        await homePage.menuButtonClick()
-        await homePage.aboutLinkClick()
+        await homePage.menuButton.click()
+        await homePage.aboutLink.click()
         await expect(page).toHaveURL('https://saucelabs.com/')
     })
 
@@ -32,17 +32,17 @@ test.describe('Menu options suite', async () => {
         const homePage = new HomePage(page)
         const loginPage = new LoginPage(page)
 
-        await homePage.menuButtonClick()
-        await homePage.logOutLinkClick()
+        await homePage.menuButton.click()
+        await homePage.logOutLink.click()
         await expect(page).toHaveURL(`${process.env.BASE_URL}`)
     })
 
     test('RESET APP STATE Link', async ({ page }) => {
         const homePage = new HomePage(page)
 
-        await homePage.addBackPackItemClick()
-        await homePage.menuButtonClick()
-        await homePage.resetAppLinkClick()
+        await homePage.addBackPackItem.click()
+        await homePage.menuButton.click()
+        await homePage.resetAppLink.click()
         await expect(homePage.shoppingCartBadge).not.toBeVisible()
     })
 

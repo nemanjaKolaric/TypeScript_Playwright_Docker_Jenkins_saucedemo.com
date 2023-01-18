@@ -14,7 +14,7 @@ test.describe("Test suite - 'CHECKOUT: YOUR INFORMATION' page", async () => {
         await loginPage.baseURL()
         await loginPage.logInForm(`${process.env.STANDARD_USER}`, `${process.env.PASSWORD}`)
         await homePage.shoppingCartLink.click()
-        await checkoutPage.checkoutButtonClick()
+        await checkoutPage.checkoutButton.click()
     })
 
     customer.forEach((data) => {

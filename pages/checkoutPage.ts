@@ -1,11 +1,4 @@
-import { Page } from "@playwright/test"  
-const checkoutButton = '#checkout'
-const firstNameInput = '#first-name'
-const lastNameInput = '#last-name'
-const postalCodeInput = '#postal-code'
-const continueButton = '#continue'
-const removeBackPackItemButton = '#remove-sauce-labs-backpack'
-const finishButton = '#finish'
+import { Page } from "@playwright/test"
 
 export default class CheckoutPage {
 
@@ -32,63 +25,63 @@ export default class CheckoutPage {
         return this.page.locator('.title');
     }
 
-    async checkoutButtonClick() {
-        await this.page.locator(checkoutButton).click()
+    get checkoutButton() {
+        return this.page.locator('#checkout')
     }
 
-    async firtsNameFill(value: string) {
-        await this.page.locator(firstNameInput).fill(value)
+    get firtsNameField() {
+        return this.page.locator('#first-name')
     }
 
-    async lastNameFill(value: string) {
-        await this.page.locator(lastNameInput).fill(value)
+    get lastNameField() {
+        return this.page.locator('#last-name')
     }
 
-    async postalCodeFill(value: string) {
-        await this.page.locator(postalCodeInput).fill(value)
+    get postalCodeField() {
+        return this.page.locator('#postal-code')
     }
 
-    async continueButtonClick() {
-        await this.page.locator(continueButton).click()
+    get continueButton() {
+        return this.page.locator('#continue')
     }
 
-    async finishButtonClick() {
-        await this.page.locator(finishButton).click()
+    get finishButton() {
+        return this.page.locator('#finish')
     }
 
-    async removeItemBackPackButtonClick() {
-        await this.page.locator(removeBackPackItemButton).click()
+    get removeItemBackPackButton() {
+        return this.page.locator('#remove-sauce-labs-backpack')
     }
 
     async shoppingForm(firstName, lastName, postalCode) {
         if (firstName === "" && lastName === "" && postalCode === "") {
-            await this.continueButtonClick()
+            await this.continueButton.click()
         } else if (firstName === "" && lastName === "") {
-            await this.postalCodeFill(postalCode)
-            await this.continueButtonClick()
+            await this.postalCodeField.fill(postalCode)
+            await this.continueButton.click()
         } else if (firstName === "" && postalCode === "") {
-            await this.lastNameFill(lastName)
-            await this.continueButtonClick()
+            await this.lastNameField.fill(lastName)
+            await this.continueButton.click()
         } else if (firstName === "") {
-            await this.lastNameFill(lastName)
-            await this.postalCodeFill(postalCode)
-            await this.continueButtonClick()
+            await this.lastNameField.fill(lastName)
+            await this.postalCodeField.fill(postalCode)
+            await this.continueButton.click()
         } else if (lastName === "" && postalCode === "") {
-            await this.firtsNameFill(firstName)
-            await this.continueButtonClick()
+            await this.firtsNameField.fill(firstName)
+            await this.continueButton.click()
         } else if (lastName === "") {
-            await this.firtsNameFill(firstName)
-            await this.postalCodeFill(postalCode)
-            await this.continueButtonClick()
+            await this.firtsNameField.fill(firstName)
+            await this.postalCodeField.fill(postalCode)
+            await this.continueButton.click()
         } else if (postalCode === "") {
-            await this.firtsNameFill(firstName)
-            await this.lastNameFill(lastName)
-            await this.continueButtonClick()
+            await this.firtsNameField.fill(firstName)
+            await this.lastNameField.fill(lastName)
+            await this.continueButton.click()
         } else {
-            await this.firtsNameFill(firstName)
-            await this.lastNameFill(lastName)
-            await this.postalCodeFill(postalCode)
-            await this.continueButtonClick()
+            await this.firtsNameField.fill(firstName)
+            await this.lastNameField.fill(lastName)
+            await this.postalCodeField.fill(postalCode)
+            await this.continueButton.click()
         }
     }
 

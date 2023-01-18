@@ -1,46 +1,43 @@
 import { Page } from '@playwright/test';
-const userNameField = 'username'
-const passwordField = 'password'
-const loginButton = '#login-button'
 
 export default class LoginPage {
 
     constructor(public page: Page) {
     }
 
+    get userNameField() {
+        return this.page.getByTestId('username')
+    }
+
+    get passwordField() {
+        return this.page.getByTestId('password')
+    }
+
+    get errorMessage() {
+        return this.page.getByTestId('error');
+    }
+
+    get loginButton() {
+        return this.page.locator('#login-button');
+    }
+
     async baseURL() {
         await this.page.goto(`${process.env.BASE_URL}`)
     }
 
-    get errorMessage() {
-        return this.page.locator('[data-test="error"]');
-    }
-
-    async userNameFill(value: string) {
-        await this.page.getByTestId(userNameField).fill(value);
-    }
-
-    async userPasswordFill(value: string) {
-        await this.page.getByTestId(passwordField).fill(value);
-    }
-
-    async loginButtonClick() {
-        await this.page.locator(loginButton).click();
-    }
-
     async logInForm(username, password) {
         if (username === "" && password === "") {
-            await this.loginButtonClick()
+            await this.loginButton.click()
         } else if (username === "") {
-            await this.userPasswordFill(password)
-            await this.loginButtonClick()
+            await this.passwordField.fill(password)
+            await this.loginButton.click()
         } else if (password === "") {
-            await this.userNameFill(username)
-            await this.loginButtonClick()
+            await this.userNameField.fill(username)
+            await this.loginButton.click()
         } else {
-            await this.userNameFill(username)
-            await this.userPasswordFill(password)
-            await this.loginButtonClick()
+            await this.userNameField.fill(username)
+            await this.passwordField.fill(password)
+            await this.loginButton.click()
         }
     }
 

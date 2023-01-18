@@ -1,13 +1,4 @@
 import { Page } from '@playwright/test';
-const menuButton = '#react-burger-menu-btn'
-const allItemsLink = '#inventory_sidebar_link'
-const aboutLink = '#about_sidebar_link'
-const logOutLink = '#logout_sidebar_link'
-const resetAppStateLink = '#reset_sidebar_link'
-const addBackPack = '#add-to-cart-sauce-labs-backpack'
-const addBackLight = '#add-to-cart-sauce-labs-bike-light'
-const removeBackPack = '#remove-sauce-labs-backpack'
-const linkItemBackPack = '.inventory_item:nth-child(1) .inventory_item_name'
 
 export default class HomePage {
 
@@ -22,40 +13,40 @@ export default class HomePage {
         return this.page.locator('.shopping_cart_link')
     }
 
-    async menuButtonClick() {
-        await this.page.locator(menuButton).click()
+    get menuButton() {
+        return this.page.locator('#react-burger-menu-btn')
     }
 
-    async allItemsClick() {
-        await this.page.locator(allItemsLink).click()
+    get allItemsLink() {
+        return this.page.locator('#inventory_sidebar_link')
     }
 
-    async aboutLinkClick() {
-        await this.page.locator(aboutLink).click()
+    get aboutLink() {
+        return this.page.locator('#about_sidebar_link')
     }
 
-    async logOutLinkClick() {
-        await this.page.locator(logOutLink).click()
+    get logOutLink() {
+        return this.page.locator('#logout_sidebar_link')
     }
 
-    async resetAppLinkClick() {
-        await this.page.locator(resetAppStateLink).click()
+    get resetAppLink() {
+        return this.page.locator('#reset_sidebar_link')
     }
 
-    async addBackPackItemClick() {
-        await this.page.locator(addBackPack).click()
+    get addBackPackItem() {
+        return this.page.locator('#add-to-cart-sauce-labs-backpack')
     }
 
-    async addBackLightItemClick() {
-        await this.page.locator(addBackLight).click()
+    get addBackLightItem() {
+        return this.page.locator('#add-to-cart-sauce-labs-bike-light')
     }
 
-    async removeBackPackItemClick() {
-        await this.page.locator(removeBackPack).click()
+    get removeBackPackItem() {
+        return this.page.locator('#remove-sauce-labs-backpack')
     }
 
-    async linkBackPackItemClick() {
-        await this.page.locator(linkItemBackPack).click()
+    get backPackItemPage() {
+        return this.page.locator('.inventory_item:nth-child(1) .inventory_item_name')
     }
 
 }
